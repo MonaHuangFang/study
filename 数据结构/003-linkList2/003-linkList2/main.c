@@ -23,12 +23,13 @@ typedef struct Node{
 
 typedef struct Node * LinkList;
 
-Status initList(LinkList *L){
+Status initList(LinkList *L,int value){
     *L = (LinkList)malloc(sizeof(Node));
     if(*L == NULL) return ERROR;
     
     (*L)->next = (*L);
     (*L)->prior = (*L);
+    (*L)->data = value;
     return OK;
 }
 
@@ -53,7 +54,9 @@ Status insertList(LinkList *L, int i, ElemType data){
     temp->next = target->next;
     target->next = temp;
     temp->next->prior = temp;
-    
+    if (i == 1) {
+        (*L) = temp;
+    }
     return OK;
 }
 
@@ -61,7 +64,7 @@ Status deleteList(LinkList *L ,int i){
     if (*L == NULL) return ERROR;
     if (i<1) return ERROR;
     
-    LinkList temp = (*L)->next;
+    LinkList temp = (*L);
     if (temp->next == *L) {
         *L = NULL;
         free(*L);
@@ -88,7 +91,7 @@ void display(LinkList L){
         return;
     }else{
         printf("链表数据为：");
-        LinkList temp = L->next;
+        LinkList temp = L;
         do{
             printf("%5d",temp->data);
             temp = temp->next;
@@ -102,8 +105,10 @@ int main(int argc, const char * argv[]) {
     Status status;
     int index, value;
     
-    printf("创建链表头结点\n");
-    status =  initList(&L);
+    printf("创建链表首元结点输入数据：");
+    scanf("%d",&value);
+    status =  initList(&L,value);
+    display(L);
     
     printf("请输入插入的位置和数据:");
     scanf("%d %d",&index,&value);
