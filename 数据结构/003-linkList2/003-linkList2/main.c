@@ -23,6 +23,7 @@ typedef struct Node{
 
 typedef struct Node * LinkList;
 
+//初始化创建首元结点
 Status initList(LinkList *L,int value){
     *L = (LinkList)malloc(sizeof(Node));
     if(*L == NULL) return ERROR;
@@ -39,8 +40,10 @@ Status insertList(LinkList *L, int i, ElemType data){
     
     LinkList target;
     if (i==1) {
+        //当插入的位置为首元结点时，获取首元结点的前一结点
         target = (*L)->prior;
     }else{
+        // 获取插入位置的前一结点
         int j = 1;
         target = *L;
         while (j < i && target->next != *L) {
@@ -52,13 +55,17 @@ Status insertList(LinkList *L, int i, ElemType data){
     
     LinkList temp = (LinkList)malloc(sizeof(Node));
     if (temp == NULL) return ERROR;
-    
     temp->data = data;
+    //将插入结点的前驱指向插入位置的前一结点
     temp->prior = target;
+    //将插入结点的前后驱指向插入位置的结点
     temp->next = target->next;
+    //将插入位置的前一结点的后驱指向插入的结点
     target->next = temp;
+    //将插入位置的原结点的前驱指向插入的结点
     temp->next->prior = temp;
     if (i == 1) {
+        //当插入的位置为首元结点时，插入的结点变成首元结点
         (*L) = temp;
     }
     return OK;
@@ -82,14 +89,16 @@ Status deleteList(LinkList *L ,int i){
     }
     
     if (j<i&&temp->next == *L) {
+        //输入的位置超过了链表的长度
         return ERROR;
     }
     if (i==1) {
+        //当删除的结点时首元结点时，首元结点的下一个结点将成为新的首元结点
         *L = temp->next;
     }
+    
     temp->prior->next = temp->next;
     temp->next->prior = temp->prior;
-    
     
     free(temp);
     
