@@ -37,14 +37,18 @@ Status insertList(LinkList *L, int i, ElemType data){
     if (*L == NULL) return ERROR;
     if (i<1) return ERROR;
     
-    LinkList target = *L;
-    int j = 1;
-    while (j < i && target->next != *L) {
-        target = target->next;
-        j++;
+    LinkList target;
+    if (i==1) {
+        target = (*L)->prior;
+    }else{
+        int j = 1;
+        target = *L;
+        while (j < i && target->next != *L) {
+            target = target->next;
+            j++;
+        }
+        if (j>i) return ERROR;
     }
-    
-    if (j>i) return ERROR;
     
     LinkList temp = (LinkList)malloc(sizeof(Node));
     if (temp == NULL) return ERROR;
@@ -72,13 +76,20 @@ Status deleteList(LinkList *L ,int i){
     }
     
     int j = 1;
-    while (j < i) {
+    while (j < i&&temp->next != *L) {
         temp = temp->next;
         j++;
     }
     
+    if (j<i&&temp->next == *L) {
+        return ERROR;
+    }
+    if (i==1) {
+        *L = temp->next;
+    }
     temp->prior->next = temp->next;
     temp->next->prior = temp->prior;
+    
     
     free(temp);
     
