@@ -51,6 +51,7 @@ Status insertList(LinkList *L, int i, Elemtype data){
     temp->data = data;
     temp->next = p->next;
     p->next = temp;
+    
     return OK;
 }
 
@@ -75,11 +76,7 @@ void display(LinkList L){
 关键词:递增有序链表,不允许有重复数据,保留递增关系(后插法)
      不占用额外的存储空间指的是不能开辟新节点,赋值在链接到链表上;
 
-算法思想:
-(1)假设待合并的链表为La和Lb,将Lb中的节点依次取出插入到La中. Pa 和 Pb 分别是La,Lb的工作指针.初始化为相应链表的首元结点
-(2)从首元结点开始比较, 当两个链表La 和Lb 均未到达表尾结点时,比较Pa->next和Pb,取较小值放入到Pa->next位置.
-(3)如果两个表中的元素相等,删除Lb表中的元素,这样确保合并后表中无重复的元素;
-(4)当La到表尾结点为空时,Lb还未到表尾,将Lb后的所有节点都移到La表后,释放链表Lb的头结点,返回La;
+算法思想:循环La和Lb链表，将Lb中的节点依次取出插入到La中，返回La
 
 */
 
@@ -119,6 +116,108 @@ LinkList mergeList(LinkList *La, LinkList *Lb){
     return *La;
 }
 
+/*
+作业2:
+题目:
+已知两个链表A和B分别表示两个集合.其元素递增排列. 设计一个算法,用于求出A与B的交集,并存储在A链表中;
+例如:
+La = {2,4,6,8}; Lb = {4,6,8,10};
+Lc = {4,6,8}
+
+关键词:依次摘取2个表中相等的元素重新进行链接,删除其他不等的元素;
+
+算法思想:循环La和Lb链表，将La中节点值不存在Lb中的节点删除，返回La
+
+*/
+
+LinkList intersection(LinkList *La, LinkList *Lb){
+    if ((*La) == NULL || (*La)->next == NULL || (*Lb) == NULL || (*Lb)->next==NULL) {
+        return NULL;
+    }
+    
+    LinkList Pa = (*La);
+    LinkList Pb = (*Lb)->next;
+    while (Pa->next!=NULL && Pb!=NULL) {
+        LinkList temp;
+        if (Pa->next->data>Pb->data) {
+            //当Pa的下一个节点的值大于Pb的值时，Pb往后移
+            Pb = Pb->next;
+        }else if (Pa->next->data<Pb->data){
+            //当Pa的下一个节点的值小于Pb的值时，删除Pa的下一个节点，将Pa的next指向下一个节点的节点
+            temp = Pa->next;
+            Pa->next = temp->next;
+            free(temp);
+        }else{
+            //当Pa的下一个节点的值等于Pb的值时，留下Pa，Pa往后移，Pb往后移
+            Pa = Pa->next;
+            Pb = Pb->next;
+        }
+    }
+    //当La的长度超出Lb时，将超出的那部分删掉
+    if (Pb==NULL && Pa->next != NULL) {
+        Pa->next = NULL;
+    }
+    //释放Lb
+    free(*Lb);
+    return *La;
+}
+
+/*
+作业3:
+题目:
+设计一个算法,将链表中所有节点的链接方向"原地旋转",即要求仅仅利用原表的存储空间. 换句话说,要求算法空间复杂度为O(1);
+例如:L={0,2,4,6,8,10}, 逆转后: L = {10,8,6,4,2,0};
+
+关键词:不能开辟新的空间,只能改变指针的指向; 可以考虑逐个摘取结点,利用前插法创建链表的思想,将结点一次插入到头结点的后面; 因为先插入的结点为表尾,后插入的结点为表头,即可实现链表的逆转;
+
+算法思想:
+ 利用原有的头结点*L,p为工作指针, 初始时p指向首元结点. 因为摘取的结点依次向前插入;
+*/
+
+LinkList reversal(LinkList *L){
+    if (*L == NULL && (*L)->next==NULL) {
+        return ERROR;
+    }
+    
+    LinkList p = (*L)->next;
+    (*L)->next = NULL;
+    
+    while (p!=NULL) {
+        LinkList temp = p->next;
+        p->next = (*L)->next;
+        (*L)->next = p;
+        p = temp;
+    }
+    
+    return *L;
+}
+
+
+/*
+作业4:
+题目:
+设计一个算法,删除递增有序链表中值大于等于mink且小于等于maxk(mink,maxk是给定的两个参数,其值可以和表中的元素相同,也可以不同)的所有元素;
+
+算法思想:循环遍历*L,p为工作指针,当p的值大于等于mink且小于等于maxk时，删除p
+*/
+
+void deleteMinMax(LinkList *L, int min, int max)
+{
+    if (*L == NULL || (*L)->next == NULL) {
+        return;
+    }
+    LinkList p = *L;
+    while (p->next!=NULL) {
+        LinkList temp = p->next;
+        if (temp->data>=min && temp->data<=max) {
+            p->next = temp->next;
+            free(temp);
+        }else{
+            p = temp;
+        }
+    }
+}
+
 
 int main(int argc, const char * argv[]) {
     // insert code here...
@@ -128,21 +227,63 @@ int main(int argc, const char * argv[]) {
     iStatus = initList(&Lb);
     
     //    ---------作业1--------
-    for(int j = 1;j<=3;j++)
+//    for(int j = 1;j<=4;j++)
+//    {
+//        iStatus = insertList(&La, j, j);
+//    }
+//    printf("La:");
+//    display(La);
+//
+//    for(int j = 2,i = 1;j<8;j+=2,i++)
+//    {
+//        iStatus = insertList(&Lb, i, j);
+//    }
+//    printf("Lb:");
+//    display(Lb);
+//
+//    La = mergeList(&La, &Lb);
+//    display(La);
+    
+    // ---------作业2--------
+//    for(int j = 2,i = 1;j<=8;j+=2,i++)
+//    {
+//        iStatus = insertList(&La, i, j);
+//    }
+//    printf("La:");
+//    display(La);
+//
+//    for(int j = 4,i = 1;j<=10;j+=2,i++)
+//    {
+//        iStatus = insertList(&Lb, i, j);
+//    }
+//    printf("Lb:");
+//    display(Lb);
+//    La = intersection(&La, &Lb);
+//    display(La);
+    
+    // ---------作业3--------
+//
+//    for(int j = 0,i = 1;j<=10;j+=2,i++)
+//    {
+//        iStatus = insertList(&La, i, j);
+//    }
+//    printf("La:");
+//    display(La);
+//
+//    La = reversal(&La);
+//    printf("La:");
+//    display(La);
+    
+    // ---------作业4--------
+    for(int j = 1;j<=10;j++)
     {
         iStatus = insertList(&La, j, j);
     }
     printf("La:");
     display(La);
-
-    for(int j = 3,i = 1;j<10;j+=3,i++)
-    {
-        iStatus = insertList(&Lb, i, j);
-    }
-    printf("Lb:");
-    display(Lb);
     
-    La = mergeList(&La, &Lb);
+    deleteMinMax(&La, 4, 8);
+    printf("La:");
     display(La);
     
     return 0;
