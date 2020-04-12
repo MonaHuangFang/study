@@ -218,6 +218,47 @@ void deleteMinMax(LinkList *L, int min, int max)
     }
 }
 
+/*
+题目5:
+设将n(n>1)个整数存放到一维数组R中, 试设计一个在时间和空间两方面都尽可能高效的算法;将R中保存的序列循环左移p个位置(0<p<n)个位置, 即将R中的数据由(x0,x1,......,xn-1)变换为(xp,xp+1,...,xn-1,x0,x1,...,xp-1).
+
+例如: pre[10] = {0,1,2,3,4,5,6,7,8,9},
+     n = 10,p = 3;
+     pre[10] = {3,4,5,6,7,8,9,0,1,2}
+
+算法思路:
+1. 先将n个数据原地逆置 9,8,7,6,5,4,3,2,1,0;
+2. 将n个数据拆解成[9,8,7,6,5,4,3] [2,1,0]
+2. 将前n-p个数据和后p个数据分别原地逆置; [3,4,5,6,7,8,9] [0,1,2]
+
+复杂度分析:
+时间复杂度: O(n); 空间复杂度:O(1);
+*/
+
+void reverseArray(int *a, int left, int right){
+    if (a == NULL || left>=right) {
+        return;
+    }
+    int i = left, j = right;
+    int temp;
+    while (i<j) {
+        
+        temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+        i++;
+        j--;
+    }
+}
+
+void leftShift(int *a, int n, int p){
+    if (a && p>0 && p<n) {
+        reverseArray(a, 0, n-1);
+        reverseArray(a, 0, n-1-p);
+        reverseArray(a, n-p, n-1);
+    }
+}
+
 
 int main(int argc, const char * argv[]) {
     // insert code here...
@@ -275,16 +316,25 @@ int main(int argc, const char * argv[]) {
 //    display(La);
     
     // ---------作业4--------
-    for(int j = 1;j<=10;j++)
-    {
-        iStatus = insertList(&La, j, j);
-    }
-    printf("La:");
-    display(La);
+//    for(int j = 1;j<=10;j++)
+//    {
+//        iStatus = insertList(&La, j, j);
+//    }
+//    printf("La:");
+//    display(La);
+//
+//    deleteMinMax(&La, 4, 8);
+//    printf("La:");
+//    display(La);
     
-    deleteMinMax(&La, 4, 8);
-    printf("La:");
-    display(La);
+    // ---------作业5--------
+    int a[10] = {0,1,2,3,4,5,6,7,8,9};
+    leftShift(a, 10, 3);
+    for (int i=0; i < 10; i++) {
+        printf("%d ",a[i]);
+    }
+    printf("\n");
+    
     
     return 0;
 }
