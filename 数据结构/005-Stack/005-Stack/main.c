@@ -93,6 +93,23 @@ void display(OrderStack s){
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    printf("Hello, World!\n");
+    OrderStack s;
+    int e;
+    if (initStack(&s) == OK) {
+        for (int i = 1; i<10; i++) {
+            push(&s, i);
+        }
+    }
+    printf("顺序栈中元素为:\n");
+    display(s);
+    
+    pop(&s, &e);
+    printf("弹出栈顶元素为: %d\n",e);
+    display(s);
+    printf("是否为空栈:%d\n",stackIsEmpty(s));
+    getTop(s, &e);
+    printf("栈顶元素:%d \n栈长度:%d\n",e,stackCount(s));
+    clearStack(&s);
+    printf("是否已经清空栈 %d, 栈长度为:%d\n",stackIsEmpty(s),stackCount(s));
     return 0;
 }
