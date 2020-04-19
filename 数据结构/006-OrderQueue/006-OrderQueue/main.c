@@ -102,7 +102,7 @@ void display(OrderQueue q){
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    Status j = 0;
+     Status j = 0;
      int i=0;
      QElemType d;
      OrderQueue q;
