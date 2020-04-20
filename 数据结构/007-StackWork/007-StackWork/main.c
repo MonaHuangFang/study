@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include "stdlib.h"
+#include <string.h>
 
 #define OK 1
 #define ERROR 0
@@ -228,10 +229,77 @@ int * dailyTemperatures_3(int *T,int size){
     return result;
 }
 
+//5、字符串编码问题
+char *decodeString(char *s){
+    int len = (int)strlen(s);
+    int stackSize = 50;
+    char *stack = (char *)malloc(sizeof(char)*stackSize);
+    int top = -1;
+    for (int i = 0; i<len; i++) {
+        if (s[i] !=']') {
+            //入栈
+            if (top == stackSize-1) {
+                stack = realloc(stack, (stackSize += 50)*sizeof(char));
+            }
+            stack[++top] = s[i];
+        }else{
+            //将'['之后的字母出栈，且出栈的字母存入临时栈temp中
+            int tempSize = 10;
+            char *temp = (char *)malloc(sizeof(char) * tempSize);
+            int topOfTemp = -1;
+            while (stack[top] != '[') {
+                if (topOfTemp == tempSize - 1) {
+                    temp = realloc(temp, (tempSize += 10) * sizeof(char));
+                }
+                temp[++topOfTemp] = stack[top];
+                top--;
+            }
+            
+            //将'['之前的数字出栈，存入到临时栈strOfInt中
+            int intSize = 10;
+            char *strOfInt = (char *)malloc(sizeof(char)*intSize);
+            
+            int curTop = top;
+            top--;
+            while (top!=-1 && stack[top]>='0' && stack[top]<='9') {
+                top--;
+            }
+            
+            for (int i = 0; i<curTop-top-1; i++) {
+                if (i == intSize - 1) {
+                    strOfInt = realloc(strOfInt, (intSize += 10)*sizeof(char));
+                }
+                strOfInt[i] = stack[top+1+i];
+            }
+            strOfInt[curTop - (top + 1)] = '\0';
+            int curNum = atoi(strOfInt);
+            
+            //将temp中的字母复制curNum，存入到stack中
+            for (int i = 0; i<curNum; ++i) {
+                int k = topOfTemp;
+                while (k != -1) {
+                    if (top == stackSize-1) {
+                        stack = realloc(stack, (stackSize += 50)*sizeof(char));
+                    }
+                    stack[++top] = temp[k];
+                    k--;
+                }
+            }
+            free(temp);
+            temp = NULL;
+        }
+    }
+    char* ans = realloc(stack, (top + 1) * sizeof(char));
+    ans[++top] = '\0';
+    
+    free(stack);
+    stack = NULL;
+    
+    return ans;
+}
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    printf("Hello, World!\n");
     //进制转换
 //    conversion(1348);
     
@@ -257,22 +325,36 @@ int main(int argc, const char * argv[]) {
     //每日温度问题
 //    int test[8]= {73, 74, 75, 71, 69, 72, 76, 73};
 //    int test[8]= {73, 74, 75, 75, 69, 72, 76, 73};
-    int  test[10]= {73, 74, 75, 71, 69, 78, 76, 73};
-    int  *result;
+//    int  test[10]= {73, 74, 75, 71, 69, 78, 76, 73};
+//    int  *result;
     
 //    result = dailyTemperatures_1(test, 8);
 //    result = dailyTemperatures_2(test, 8);
-    result = dailyTemperatures_3(test, 8);
+//    result = dailyTemperatures_3(test, 8);
+//
+//    for (int i = 0; i < 8;i++ ) {
+//        printf("%d ",test[i]);
+//    }
+//    printf("\n");
+//
+//    for (int i = 0; i < 8;i++ ) {
+//        printf("%d ",result[i]);
+//    }
+//    printf("\n");
     
-    for (int i = 0; i < 8;i++ ) {
-        printf("%d ",test[i]);
-    }
-    printf("\n");
+    //字符串编码问题
+    char *s ;
+    s = decodeString("12[a]");
+    printf("字符编码后的结果: %s\n\n\n\n",s);
     
-    for (int i = 0; i < 8;i++ ) {
-        printf("%d ",result[i]);
-    }
-    printf("\n");
+    s = decodeString("3[a]2[bc]");
+    printf("字符编码后的结果: %s\n\n\n\n",s);
+
+    s = decodeString("3[a2[c]]");
+    printf("字符编码后的结果: %s\n\n\n\n",s);
+
+    s = decodeString("2[abc]3[cd]ef");
+    printf("字符编码后的结果: %s\n\n\n\n",s);
     
     return 0;
 }
