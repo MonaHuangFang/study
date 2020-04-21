@@ -275,7 +275,7 @@ char *decodeString(char *s){
             int curNum = atoi(strOfInt);
             
             //将temp中的字母复制curNum，存入到stack中
-            for (int i = 0; i<curNum; ++i) {
+            for (int i = 0; i<curNum; i++) {
                 int k = topOfTemp;
                 while (k != -1) {
                     if (top == stackSize-1) {
