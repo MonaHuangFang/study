@@ -84,6 +84,24 @@ int index_BF(String S, String T){
  3.当相等时，再进行二次字母匹配
 */
 
+//算出d进制下的最高位
+int getMaxValue(int m){
+    int h = 1;
+    for (int i = 0; i<m-1; i++) {
+        h = h * d;
+    }
+    return h;
+}
+
+//二次字母匹配
+Status isMatch(String S, int i, String T){
+    for (int j = i; j<=T[0]; j++) {
+        if(S[j] != T[j-i+1])
+            return FALSE;
+    }
+    return TRUE;
+}
+
 int index_RK(String S, String T){
     //A T的哈希值
     unsigned int A = 0;
@@ -107,24 +125,6 @@ int index_RK(String S, String T){
     }
     
     return -1;
-}
-
-//算出d进制下的最高位
-int getMaxValue(int m){
-    int h = 1;
-    for (int i = 0; i<m-1; i++) {
-        h = h * d;
-    }
-    return h;
-}
-
-//二次字母匹配
-Status isMatch(String S, int i, String T){
-    for (int j = i; j<=T[0]; j++) {
-        if(S[j] != T[j-i+1])
-            return FALSE;
-    }
-    return TRUE;
 }
 
 int main(int argc, const char * argv[]) {
