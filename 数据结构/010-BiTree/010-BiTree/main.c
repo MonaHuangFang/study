@@ -146,8 +146,37 @@ CElemType rightChildNode(OrderBiTree T,CElemType e){
     return Nil;
 }
 
-//二叉树的遍历
+//获取某结点的左兄弟
+CElemType leftSibling(OrderBiTree T,CElemType e){
+    if (T[0] == Nil) {
+        return Nil;
+    }
+    for (int i=0; i<MAX_TREE_SIZE-1; i++) {
+        //找到e数据的结点，且该结点是右结点
+        if (T[i] == e&&i%2==0) {
+            return T[i-1];
+        }
+    }
+    
+    return Nil;
+}
 
+//获取某结点的右兄弟
+CElemType rightSibling(OrderBiTree T,CElemType e){
+    if (T[0] == Nil) {
+        return Nil;
+    }
+    for (int i=0; i<MAX_TREE_SIZE-1; i++) {
+        //找到e数据的结点，且该结点是左结点
+        if (T[i] == e&&i%2==1) {
+            return T[i+1];
+        }
+    }
+    
+    return Nil;
+}
+
+//二叉树的遍历
 Status visit(CElemType c){
     printf("%d ",c);
     return OK;
