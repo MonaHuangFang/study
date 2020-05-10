@@ -287,6 +287,8 @@ int main(int argc, const char * argv[]) {
     printf("结点%d的双亲为%d_",e,parentNode(T, e));
     //找到e这个结点的左右孩子;
     printf("左右孩子分别为:%d,%d\n",leftChildNode(T, e),rightChildNode(T, e));
+    //找到e这个结点的左右兄弟;
+    printf("结点%d的左右兄弟:%d,%d\n",e,leftSibling(T, e),rightSibling(T, e));
     
     setValueToPosition(T, p, 5);
     
