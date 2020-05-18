@@ -17,8 +17,6 @@
 
 #define INFINITYC 65535
 
-typedef int Status;    /* Status是函数的类型,其值是函数结果状态代码，如OK等 */
-
 typedef struct{
     int arc[MAXVEX][MAXVEX];  //邻接矩阵
     int numNodes, numEdges;
