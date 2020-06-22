@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wechatapp/pages/discover/discover_detail.dart';
 
-class DiscoverCell extends StatelessWidget {
+class DiscoverCell extends StatefulWidget {
   final String icon;
   final String title;
   final String subTitle;
@@ -12,58 +12,80 @@ class DiscoverCell extends StatelessWidget {
   const DiscoverCell({Key key, this.icon, this.title, this.subTitle, this.subImage, this.hasBottomLine = false, this.hasSection = false}) : super(key: key);
 
   @override
+  _DiscoverCellState createState() => _DiscoverCellState();
+}
+
+class _DiscoverCellState extends State<DiscoverCell> {
+  Color _currentColor = Colors.white;
+
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (BuildContext context) => DiscoverDetailPage(title: title,)
-        ));
+        onTap: (){
 
-      },
-      child: Column(
-        children: [
-          hasSection ? SizedBox(height: 10,):Container(),
-          Container(
-            height: 54,
-            color: Colors.white,
-            padding: EdgeInsets.all(10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (BuildContext context) => DiscoverDetailPage(title: widget.title,)
+          ));
+          setState(() {
+            _currentColor = Colors.white;
+          });
+        },
+        onTapDown: (TapDownDetails details){
+          setState(() {
+            _currentColor = Colors.grey;
+          });
+        },
+        onTapCancel: (){
+          setState(() {
+            _currentColor = Colors.white;
+          });
+        },
+        child: Column(
+          children: [
+            widget.hasSection ? SizedBox(height: 10,):Container(),
+            Container(
+              height: 54,
+              color: _currentColor,
+              padding: EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      Image(image: AssetImage(widget.icon),width: 20,),
+                      SizedBox(width: 15,),
+                      Text(widget.title),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      widget.subTitle != null ? Text('${widget.subTitle}  ') : Container(),
+                      widget.subImage != null ? Image.asset(widget.subImage,width: 12,) :Container(),
+                      SizedBox(width: 5),
+                      Image.asset('images/icon_right.png',width: 15,)
+                    ],
+                  )
+                ],
+              ),
+            ),
+            widget.hasBottomLine ? Row(
               children: [
-                Row(
-                  children: [
-                    Image(image: AssetImage(icon),width: 20,),
-                    SizedBox(width: 15,),
-                    Text(title),
-                  ],
+                Container(
+                  width: 40,
+                  height: 0.5,
+                  color: Colors.white,
                 ),
-                Row(
-                  children: [
-                    subTitle != null ? Text('$subTitle  ') : Container(),
-                    subImage != null ? Image.asset(subImage,width: 12,) :Container(),
-                    SizedBox(width: 5),
-                    Image.asset('images/icon_right.png',width: 15,)
-                  ],
+                Container(
+                  height: 0.5,
+                  color: Colors.grey,
                 )
               ],
-            ),
-          ),
-          hasBottomLine ? Row(
-            children: [
-              Container(
-                width: 40,
-                height: 0.5,
-                color: Colors.white,
-              ),
-              Container(
-                height: 0.5,
-                color: Colors.grey,
-              )
-            ],
-          ) : Container(),
-        ],
-      )
+            ) : Container(),
+          ],
+        )
     );
   }
 }
+

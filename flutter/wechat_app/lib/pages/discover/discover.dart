@@ -2,25 +2,26 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wechatapp/pages/discover/discover_cell.dart';
 
+import '../../const.dart';
+
 class DiscoverPage extends StatefulWidget {
   @override
   _DiscoverPageState createState() => _DiscoverPageState();
 }
 
 class _DiscoverPageState extends State<DiscoverPage> {
-  Color _themeColor = Color.fromRGBO(220, 220, 220, 1);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: _themeColor,
+        backgroundColor: themeColor,
         centerTitle: true, //专门为了安卓使用的属性
         title: Text('发现'),
         elevation: 0.0, //底部边栏
       ),
       body: Container(
-        color: _themeColor,
+        color: themeColor,
         height: 800,
         child: ListView(
           children: [

@@ -14,9 +14,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         highlightColor: Color.fromRGBO(0, 0, 0, 0),
         splashColor: Color.fromRGBO(0, 0, 0, 0),
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.yellow,
       ),
       home: RootPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
