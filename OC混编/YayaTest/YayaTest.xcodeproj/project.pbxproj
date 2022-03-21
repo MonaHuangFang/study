@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE46672A556E7C9437E2C926 /* Pods_YayaTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880FF5D70536BA1AD0E93446 /* Pods_YayaTest.framework */; };
 		F905CAA627E887520089FEB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F905CAA527E887520089FEB5 /* AppDelegate.m */; };
 		F905CAA927E887520089FEB5 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F905CAA827E887520089FEB5 /* SceneDelegate.m */; };
 		F905CAAC27E887520089FEB5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F905CAAB27E887520089FEB5 /* ViewController.m */; };
@@ -17,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0ECDA3A0A7ADD7425D7E3B24 /* Pods-YayaTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YayaTest.debug.xcconfig"; path = "Target Support Files/Pods-YayaTest/Pods-YayaTest.debug.xcconfig"; sourceTree = "<group>"; };
+		3F9BA79D86F2D0D187E2DEE5 /* Pods-YayaTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YayaTest.release.xcconfig"; path = "Target Support Files/Pods-YayaTest/Pods-YayaTest.release.xcconfig"; sourceTree = "<group>"; };
+		880FF5D70536BA1AD0E93446 /* Pods_YayaTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YayaTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F905CAA127E887520089FEB5 /* YayaTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YayaTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F905CAA427E887520089FEB5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F905CAA527E887520089FEB5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -36,17 +40,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE46672A556E7C9437E2C926 /* Pods_YayaTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E52E6575A604C7E3B0388AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				880FF5D70536BA1AD0E93446 /* Pods_YayaTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB31D37171246437250B389A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0ECDA3A0A7ADD7425D7E3B24 /* Pods-YayaTest.debug.xcconfig */,
+				3F9BA79D86F2D0D187E2DEE5 /* Pods-YayaTest.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F905CA9827E887520089FEB5 = {
 			isa = PBXGroup;
 			children = (
 				F905CAA327E887520089FEB5 /* YayaTest */,
 				F905CAA227E887520089FEB5 /* Products */,
+				EB31D37171246437250B389A /* Pods */,
+				2E52E6575A604C7E3B0388AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +108,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F905CABA27E887540089FEB5 /* Build configuration list for PBXNativeTarget "YayaTest" */;
 			buildPhases = (
+				3B031A4CE7F2D4CE2D304E3C /* [CP] Check Pods Manifest.lock */,
 				F905CA9D27E887520089FEB5 /* Sources */,
 				F905CA9E27E887520089FEB5 /* Frameworks */,
 				F905CA9F27E887520089FEB5 /* Resources */,
@@ -140,6 +166,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3B031A4CE7F2D4CE2D304E3C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YayaTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F905CA9D27E887520089FEB5 /* Sources */ = {
@@ -289,6 +340,7 @@
 		};
 		F905CABB27E887540089FEB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0ECDA3A0A7ADD7425D7E3B24 /* Pods-YayaTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -316,6 +368,7 @@
 		};
 		F905CABC27E887540089FEB5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F9BA79D86F2D0D187E2DEE5 /* Pods-YayaTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
