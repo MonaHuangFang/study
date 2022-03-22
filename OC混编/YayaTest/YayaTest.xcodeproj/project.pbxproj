@@ -15,6 +15,12 @@
 		F905CAB727E887540089FEB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F905CAB627E887540089FEB5 /* main.m */; };
 		F905CAE527E9BC810089FEB5 /* Loginvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = F905CAE427E9BC810089FEB5 /* Loginvc.swift */; };
 		F905CB0727E9BEF60089FEB5 /* mainvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = F905CB0627E9BEF60089FEB5 /* mainvc.swift */; };
+		F905CB0C27E9C88D0089FEB5 /* all_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F905CB0B27E9C88D0089FEB5 /* all_bg.png */; };
+		F905CB1327E9D2C60089FEB5 /* login_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F905CB1127E9D2C60089FEB5 /* login_logo@3x.png */; };
+		F905CB1427E9D2C60089FEB5 /* login_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F905CB1227E9D2C60089FEB5 /* login_logo@2x.png */; };
+		F905CB1627E9D5040089FEB5 /* common.swift in Sources */ = {isa = PBXBuildFile; fileRef = F905CB1527E9D5040089FEB5 /* common.swift */; };
+		F905CB1927E9DB7D0089FEB5 /* account@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F905CB1727E9DB7D0089FEB5 /* account@2x.png */; };
+		F905CB1A27E9DB7D0089FEB5 /* account@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F905CB1827E9DB7D0089FEB5 /* account@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +39,13 @@
 		F905CAE327E9BC810089FEB5 /* YayaTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YayaTest-Bridging-Header.h"; sourceTree = "<group>"; };
 		F905CAE427E9BC810089FEB5 /* Loginvc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loginvc.swift; sourceTree = "<group>"; };
 		F905CB0627E9BEF60089FEB5 /* mainvc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainvc.swift; sourceTree = "<group>"; };
+		F905CB0B27E9C88D0089FEB5 /* all_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = all_bg.png; sourceTree = "<group>"; };
+		F905CB1027E9D0440089FEB5 /* YayaPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YayaPrefix.pch; sourceTree = "<group>"; };
+		F905CB1127E9D2C60089FEB5 /* login_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_logo@3x.png"; sourceTree = "<group>"; };
+		F905CB1227E9D2C60089FEB5 /* login_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_logo@2x.png"; sourceTree = "<group>"; };
+		F905CB1527E9D5040089FEB5 /* common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = common.swift; sourceTree = "<group>"; };
+		F905CB1727E9DB7D0089FEB5 /* account@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account@2x.png"; sourceTree = "<group>"; };
+		F905CB1827E9DB7D0089FEB5 /* account@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +98,7 @@
 		F905CAA327E887520089FEB5 /* YayaTest */ = {
 			isa = PBXGroup;
 			children = (
+				F905CB0A27E9C8770089FEB5 /* image */,
 				F905CAE227E9BC4D0089FEB5 /* swiftvc */,
 				F905CAA427E887520089FEB5 /* AppDelegate.h */,
 				F905CAA527E887520089FEB5 /* AppDelegate.m */,
@@ -94,6 +108,7 @@
 				F905CAB227E887540089FEB5 /* LaunchScreen.storyboard */,
 				F905CAB527E887540089FEB5 /* Info.plist */,
 				F905CAB627E887540089FEB5 /* main.m */,
+				F905CB1027E9D0440089FEB5 /* YayaPrefix.pch */,
 			);
 			path = YayaTest;
 			sourceTree = "<group>";
@@ -104,8 +119,21 @@
 				F905CAE427E9BC810089FEB5 /* Loginvc.swift */,
 				F905CAE327E9BC810089FEB5 /* YayaTest-Bridging-Header.h */,
 				F905CB0627E9BEF60089FEB5 /* mainvc.swift */,
+				F905CB1527E9D5040089FEB5 /* common.swift */,
 			);
 			path = swiftvc;
+			sourceTree = "<group>";
+		};
+		F905CB0A27E9C8770089FEB5 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				F905CB0B27E9C88D0089FEB5 /* all_bg.png */,
+				F905CB1227E9D2C60089FEB5 /* login_logo@2x.png */,
+				F905CB1127E9D2C60089FEB5 /* login_logo@3x.png */,
+				F905CB1727E9DB7D0089FEB5 /* account@2x.png */,
+				F905CB1827E9DB7D0089FEB5 /* account@3x.png */,
+			);
+			path = image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,8 +196,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F905CB1427E9D2C60089FEB5 /* login_logo@2x.png in Resources */,
+				F905CB1327E9D2C60089FEB5 /* login_logo@3x.png in Resources */,
 				F905CAB427E887540089FEB5 /* LaunchScreen.storyboard in Resources */,
+				F905CB0C27E9C88D0089FEB5 /* all_bg.png in Resources */,
+				F905CB1927E9DB7D0089FEB5 /* account@2x.png in Resources */,
 				F905CAB127E887540089FEB5 /* Assets.xcassets in Resources */,
+				F905CB1A27E9DB7D0089FEB5 /* account@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +257,7 @@
 			files = (
 				F905CAAC27E887520089FEB5 /* ViewController.m in Sources */,
 				F905CAA627E887520089FEB5 /* AppDelegate.m in Sources */,
+				F905CB1627E9D5040089FEB5 /* common.swift in Sources */,
 				F905CAE527E9BC810089FEB5 /* Loginvc.swift in Sources */,
 				F905CAB727E887540089FEB5 /* main.m in Sources */,
 				F905CB0727E9BEF60089FEB5 /* mainvc.swift in Sources */,
@@ -367,6 +401,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = MMSGG5DY8C;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/YayaTest/YayaPrefix.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YayaTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -401,6 +436,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = MMSGG5DY8C;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/YayaTest/YayaPrefix.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YayaTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

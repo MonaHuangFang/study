@@ -1,0 +1,6 @@
+framework module Pods_YayaSwift {
+  umbrella header "Pods-YayaSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

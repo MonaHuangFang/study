@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		134C3897AD6D94546728C0B5 /* Pods_YayaSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BCB36DA899586F57C2EE69 /* Pods_YayaSwift.framework */; };
 		F905CAF327E9BEB40089FEB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F905CAF227E9BEB40089FEB5 /* AppDelegate.swift */; };
 		F905CAF727E9BEB40089FEB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F905CAF627E9BEB40089FEB5 /* ViewController.swift */; };
 		F905CAFC27E9BEB50089FEB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F905CAFB27E9BEB50089FEB5 /* Assets.xcassets */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6AEA5C74B3999C3E798F1F82 /* Pods-YayaSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YayaSwift.release.xcconfig"; path = "Target Support Files/Pods-YayaSwift/Pods-YayaSwift.release.xcconfig"; sourceTree = "<group>"; };
+		80BCB36DA899586F57C2EE69 /* Pods_YayaSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YayaSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		880109A4332AF1F7ECA38763 /* Pods-YayaSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YayaSwift.debug.xcconfig"; path = "Target Support Files/Pods-YayaSwift/Pods-YayaSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		F905CAEF27E9BEB40089FEB5 /* YayaSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YayaSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F905CAF227E9BEB40089FEB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F905CAF627E9BEB40089FEB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				134C3897AD6D94546728C0B5 /* Pods_YayaSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		025DFEE940068E552D4A5077 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				880109A4332AF1F7ECA38763 /* Pods-YayaSwift.debug.xcconfig */,
+				6AEA5C74B3999C3E798F1F82 /* Pods-YayaSwift.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3416E8230A50A9AB14E04A29 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80BCB36DA899586F57C2EE69 /* Pods_YayaSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F905CAE627E9BEB30089FEB5 = {
 			isa = PBXGroup;
 			children = (
 				F905CAF127E9BEB40089FEB5 /* YayaSwift */,
 				F905CAF027E9BEB40089FEB5 /* Products */,
+				025DFEE940068E552D4A5077 /* Pods */,
+				3416E8230A50A9AB14E04A29 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F905CB0327E9BEB50089FEB5 /* Build configuration list for PBXNativeTarget "YayaSwift" */;
 			buildPhases = (
+				CED583E860499340926A7C7D /* [CP] Check Pods Manifest.lock */,
 				F905CAEB27E9BEB40089FEB5 /* Sources */,
 				F905CAEC27E9BEB40089FEB5 /* Frameworks */,
 				F905CAED27E9BEB40089FEB5 /* Resources */,
+				301E46691A16F3A9C2B982B5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,6 +154,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		301E46691A16F3A9C2B982B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YayaSwift/Pods-YayaSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YayaSwift/Pods-YayaSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YayaSwift/Pods-YayaSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CED583E860499340926A7C7D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YayaSwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F905CAEB27E9BEB40089FEB5 /* Sources */ = {
@@ -272,6 +340,7 @@
 		};
 		F905CB0427E9BEB50089FEB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 880109A4332AF1F7ECA38763 /* Pods-YayaSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -300,6 +369,7 @@
 		};
 		F905CB0527E9BEB50089FEB5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AEA5C74B3999C3E798F1F82 /* Pods-YayaSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

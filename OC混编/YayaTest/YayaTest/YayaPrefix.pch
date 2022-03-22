@@ -1,0 +1,14 @@
+//
+//  YayaPrefix.pch
+//  YayaTest
+//
+//  Created by 黄方 on 2022/3/22.
+//
+
+#ifndef YayaPrefix_h
+#define YayaPrefix_h
+
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [[UIScreen mainScreen] bounds].size.height
+
+#endif /* YayaPrefix_h */
