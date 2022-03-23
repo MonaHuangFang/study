@@ -20,6 +20,7 @@
 		F905CB2D27EB02EE0089FEB5 /* login_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F905CB2627EB02EE0089FEB5 /* login_logo@2x.png */; };
 		F905CB2E27EB02EE0089FEB5 /* all_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F905CB2727EB02EE0089FEB5 /* all_bg.png */; };
 		F905CB2F27EB02EE0089FEB5 /* login_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F905CB2827EB02EE0089FEB5 /* login_logo@3x.png */; };
+		F905CB3127EB09BB0089FEB5 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F905CB3027EB09BB0089FEB5 /* MainVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		F905CB2627EB02EE0089FEB5 /* login_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_logo@2x.png"; sourceTree = "<group>"; };
 		F905CB2727EB02EE0089FEB5 /* all_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = all_bg.png; sourceTree = "<group>"; };
 		F905CB2827EB02EE0089FEB5 /* login_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_logo@3x.png"; sourceTree = "<group>"; };
+		F905CB3027EB09BB0089FEB5 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				F905CAFD27E9BEB50089FEB5 /* LaunchScreen.storyboard */,
 				F905CB0027E9BEB50089FEB5 /* Info.plist */,
 				F905CB0827E9BFD00089FEB5 /* loginvc.swift */,
+				F905CB3027EB09BB0089FEB5 /* MainVC.swift */,
 			);
 			path = YayaSwift;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F905CB2027EB01E50089FEB5 /* common.swift in Sources */,
+				F905CB3127EB09BB0089FEB5 /* MainVC.swift in Sources */,
 				F905CAF327E9BEB40089FEB5 /* AppDelegate.swift in Sources */,
 				F905CB0927E9BFD00089FEB5 /* loginvc.swift in Sources */,
 			);

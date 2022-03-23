@@ -1,6 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-YayaSwift/Pods-YayaSwift-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
 ${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework
+${BUILT_PRODUCTS_DIR}/KissXML/KissXML.framework
 ${BUILT_PRODUCTS_DIR}/LookinServer/LookinServer.framework
 ${BUILT_PRODUCTS_DIR}/MyLayout/MyLayout.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework

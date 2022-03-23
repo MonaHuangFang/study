@@ -7,6 +7,7 @@
 
 import UIKit
 import MyLayout
+import AFNetworking
 
 class LoginVC : UIViewController{
     var idField : UITextField?
@@ -50,6 +51,7 @@ class LoginVC : UIViewController{
         self.idField?.myLeft = 8
         self.idField?.myVertMargin = 0
         self.idField?.weight = 1
+        self.idField?.textColor = UIColor.white
         var holderText = "帐号 或 车主号码";
         var placeholder = NSMutableAttributedString(string: holderText)
         placeholder.addAttribute(NSAttributedString.Key.foregroundColor, value: rgba(180, 175, 175, 1), range: NSMakeRange(0, holderText.count))
@@ -75,6 +77,7 @@ class LoginVC : UIViewController{
         self.pwdField?.myLeft = 8
         self.pwdField?.myVertMargin = 0
         self.pwdField?.weight = 1
+        self.pwdField?.textColor = UIColor.white
         holderText = "密码";
         placeholder = NSMutableAttributedString(string: holderText)
         placeholder.addAttribute(NSAttributedString.Key.foregroundColor, value: rgba(180, 175,175, 1), range: NSMakeRange(0, holderText.count))
@@ -92,6 +95,12 @@ class LoginVC : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.idField?.text = "68311000"
+        self.pwdField?.text = "654321"
+        if PublicDataCache.shareInstance.isLogin {
+            let mainvc = MainVC()
+            self.navigationController?.pushViewController(mainvc, animated: false)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -102,6 +111,29 @@ class LoginVC : UIViewController{
         super.viewDidAppear(animated)
     }
     @objc func loginItemPress(_ sender : UIButton){
+        let manager = AFHTTPSessionManager.init()
+        manager.responseSerializer = AFHTTPResponseSerializer()
+        manager.responseSerializer.acceptableContentTypes  = NSSet(objects: "text/xml") as? Set<String>
+        manager.requestSerializer.setValue("urn:MyYayaIntf-IMyYaya#Login", forHTTPHeaderField: "SOAPAction")
+        let appName = Bundle.main.infoDictionary?.index(forKey: "CFBundleDisplayName")
+        let dict = ["Id":self.idField?.text ?? "","Password":self.pwdField?.text ?? "","AppName":appName ?? "","Platform":"iOS"] as [String : Any]
+        let jsonData = (try? JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions.prettyPrinted))!
+        
+        let para = NSString.init(data: jsonData, encoding: String.Encoding.utf8.rawValue)
+        manager.post("http://my.50yaya.com:8080/soap/IMyYaya", parameters: para, headers: nil) { progress in
+            
+        } success: { task, responseObject in
+            
+            let data = NSString.init(data: responseObject as! Data, encoding: String.Encoding.utf8.rawValue)
+            print("%@",data ?? "null")
+            PublicDataCache.shareInstance.isLogin = true
+            let mainvc = MainVC()
+            self.navigationController?.pushViewController(mainvc, animated: true)
+        } failure: { task, error in
+            
+        }
+
+
         
     }
 }

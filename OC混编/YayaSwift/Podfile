@@ -13,5 +13,6 @@ target 'YayaSwift' do
   pod 'AFNetworking'
   pod 'SDWebImage'
   pod 'CocoaAsyncSocket'
+  pod 'KissXML'
 
 end
