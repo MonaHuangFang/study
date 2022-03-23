@@ -36,7 +36,7 @@ import MyLayout
         idLayout?.myWidth = 240
         idLayout?.myHeight = 40
         idLayout?.gravity = MyGravity_Vert_Center
-        idLayout?.backgroundColor = rgba(r: 102, g: 102, b: 102, a: 1)
+        idLayout?.backgroundColor = rgb(102, 102, 102)
         idLayout?.layer.masksToBounds = true
         idLayout?.layer.cornerRadius = 20
         rootLayout?.addSubview(idLayout ?? MyLinearLayout())
@@ -52,7 +52,7 @@ import MyLayout
         self.idField?.weight = 1
         var holderText = "帐号 或 车主号码";
         var placeholder = NSMutableAttributedString(string: holderText)
-        placeholder.addAttribute(NSAttributedString.Key.foregroundColor, value: rgba(r: 180, g: 175, b: 175, a: 1), range: NSMakeRange(0, holderText.count))
+        placeholder.addAttribute(NSAttributedString.Key.foregroundColor, value: rgba(180, 175, 175, 1), range: NSMakeRange(0, holderText.count))
         self.idField?.attributedPlaceholder = placeholder;
         self.idField?.keyboardType = UIKeyboardType.numberPad;
         idLayout?.addSubview(self.idField ?? UITextField())
@@ -61,7 +61,7 @@ import MyLayout
         pwdLayout?.myWidth = 240
         pwdLayout?.myHeight = 40
         pwdLayout?.gravity = MyGravity_Vert_Center
-        pwdLayout?.backgroundColor = rgba(r: 102, g: 102, b: 102, a: 1)
+        pwdLayout?.backgroundColor = rgba(102, 102, 102, 1)
         pwdLayout?.layer.masksToBounds = true
         pwdLayout?.layer.cornerRadius = 20
         rootLayout?.addSubview(pwdLayout ?? MyLinearLayout())
@@ -77,7 +77,7 @@ import MyLayout
         self.pwdField?.weight = 1
         holderText = "密码";
         placeholder = NSMutableAttributedString(string: holderText)
-        placeholder.addAttribute(NSAttributedString.Key.foregroundColor, value: rgba(r: 180, g: 175, b: 175, a: 1), range: NSMakeRange(0, holderText.count))
+        placeholder.addAttribute(NSAttributedString.Key.foregroundColor, value: rgba(180, 175,175, 1), range: NSMakeRange(0, holderText.count))
         self.pwdField?.attributedPlaceholder = placeholder;
         pwdLayout?.addSubview(self.pwdField ?? UITextField())
         
