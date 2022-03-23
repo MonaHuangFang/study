@@ -21,6 +21,8 @@
 		F905CB1627E9D5040089FEB5 /* common.swift in Sources */ = {isa = PBXBuildFile; fileRef = F905CB1527E9D5040089FEB5 /* common.swift */; };
 		F905CB1927E9DB7D0089FEB5 /* account@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F905CB1727E9DB7D0089FEB5 /* account@2x.png */; };
 		F905CB1A27E9DB7D0089FEB5 /* account@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F905CB1827E9DB7D0089FEB5 /* account@3x.png */; };
+		F905CB1D27EAB7DE0089FEB5 /* login_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F905CB1B27EAB7DE0089FEB5 /* login_btn@2x.png */; };
+		F905CB1E27EAB7DE0089FEB5 /* login_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F905CB1C27EAB7DE0089FEB5 /* login_btn@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		F905CB1527E9D5040089FEB5 /* common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = common.swift; sourceTree = "<group>"; };
 		F905CB1727E9DB7D0089FEB5 /* account@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account@2x.png"; sourceTree = "<group>"; };
 		F905CB1827E9DB7D0089FEB5 /* account@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account@3x.png"; sourceTree = "<group>"; };
+		F905CB1B27EAB7DE0089FEB5 /* login_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_btn@2x.png"; sourceTree = "<group>"; };
+		F905CB1C27EAB7DE0089FEB5 /* login_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_btn@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,8 @@
 				F905CB1127E9D2C60089FEB5 /* login_logo@3x.png */,
 				F905CB1727E9DB7D0089FEB5 /* account@2x.png */,
 				F905CB1827E9DB7D0089FEB5 /* account@3x.png */,
+				F905CB1B27EAB7DE0089FEB5 /* login_btn@2x.png */,
+				F905CB1C27EAB7DE0089FEB5 /* login_btn@3x.png */,
 			);
 			path = image;
 			sourceTree = "<group>";
@@ -197,10 +203,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F905CB1427E9D2C60089FEB5 /* login_logo@2x.png in Resources */,
+				F905CB1D27EAB7DE0089FEB5 /* login_btn@2x.png in Resources */,
 				F905CB1327E9D2C60089FEB5 /* login_logo@3x.png in Resources */,
 				F905CAB427E887540089FEB5 /* LaunchScreen.storyboard in Resources */,
 				F905CB0C27E9C88D0089FEB5 /* all_bg.png in Resources */,
 				F905CB1927E9DB7D0089FEB5 /* account@2x.png in Resources */,
+				F905CB1E27EAB7DE0089FEB5 /* login_btn@3x.png in Resources */,
 				F905CAB127E887540089FEB5 /* Assets.xcassets in Resources */,
 				F905CB1A27E9DB7D0089FEB5 /* account@3x.png in Resources */,
 			);

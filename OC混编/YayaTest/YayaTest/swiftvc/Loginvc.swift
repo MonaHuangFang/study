@@ -50,8 +50,44 @@ class LoginVC : UIViewController{
         self.idField?.myLeft = 8
         self.idField?.myVertMargin = 0
         self.idField?.weight = 1
-        self.idField?.placeholder = "帐号 或 车主号码"
+        var holderText = "帐号 或 车主号码";
+        var placeholder = NSMutableAttributedString(string: holderText)
+        placeholder.addAttribute(NSAttributedString.Key.foregroundColor, value: rgba(r: 180, g: 175, b: 175, a: 1), range: NSMakeRange(0, holderText.count))
+        self.idField?.attributedPlaceholder = placeholder;
+        self.idField?.keyboardType = UIKeyboardType.numberPad;
         idLayout?.addSubview(self.idField ?? UITextField())
+        
+        let pwdLayout = MyLinearLayout(orientation: MyOrientation_Horz)
+        pwdLayout?.myWidth = 240
+        pwdLayout?.myHeight = 40
+        pwdLayout?.gravity = MyGravity_Vert_Center
+        pwdLayout?.backgroundColor = rgba(r: 102, g: 102, b: 102, a: 1)
+        pwdLayout?.layer.masksToBounds = true
+        pwdLayout?.layer.cornerRadius = 20
+        rootLayout?.addSubview(pwdLayout ?? MyLinearLayout())
+        
+        let pwdImg = UIImageView(image: UIImage(named: "account"))
+        pwdImg.mySize = CGSize(width: 24, height: 24)
+        pwdImg.myLeft = 8
+        pwdLayout?.addSubview(pwdImg)
+        
+        self.pwdField = UITextField()
+        self.pwdField?.myLeft = 8
+        self.pwdField?.myVertMargin = 0
+        self.pwdField?.weight = 1
+        holderText = "密码";
+        placeholder = NSMutableAttributedString(string: holderText)
+        placeholder.addAttribute(NSAttributedString.Key.foregroundColor, value: rgba(r: 180, g: 175, b: 175, a: 1), range: NSMakeRange(0, holderText.count))
+        self.pwdField?.attributedPlaceholder = placeholder;
+        pwdLayout?.addSubview(self.pwdField ?? UITextField())
+        
+        let LoginItem = UIButton()
+        LoginItem.mySize = CGSize(width: 260, height: 70);
+        LoginItem.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        LoginItem.setTitle("登录", for: UIControl.State.normal)
+        LoginItem.setBackgroundImage(UIImage(named: "login_btn"), for: UIControl.State.normal)
+        LoginItem.addTarget(self, action: #selector(loginItemPress(_:)), for: UIControl.Event.touchUpInside)
+        rootLayout?.addSubview(LoginItem)
     }
     
     override func viewDidLoad() {
@@ -64,5 +100,9 @@ class LoginVC : UIViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    @objc func loginItemPress(_ sender : UIButton){
+        
     }
 }
