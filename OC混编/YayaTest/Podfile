@@ -13,5 +13,6 @@ target 'YayaTest' do
   pod 'AFNetworking'
   pod 'SDWebImage'
   pod 'CocoaAsyncSocket'
+  pod 'YYCache' 
 
 end

@@ -8,7 +8,7 @@
 import UIKit
 import MyLayout
 
-class LoginVC : UIViewController{
+@objc class LoginVC : UIViewController{
     var idField : UITextField?
     var pwdField : UITextField?
     
