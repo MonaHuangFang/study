@@ -92,7 +92,6 @@ class LoginVC : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view!.backgroundColor = UIColor.yellow
     }
     
     override func viewWillAppear(_ animated: Bool) {
