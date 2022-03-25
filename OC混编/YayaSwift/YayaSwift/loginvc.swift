@@ -8,6 +8,7 @@
 import UIKit
 import MyLayout
 import AFNetworking
+import KissXML
 
 class LoginVC : UIViewController{
     var idField : UITextField?
@@ -110,13 +111,28 @@ class LoginVC : UIViewController{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
+    
+    func xmlData(string : NSString) -> NSData{
+        let envelope = "<soap:Envelope xmlns:c=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"></soap:Envelope>"
+        let xml = try? DDXMLDocument.init(xmlString: envelope, options: 0)
+        let root = xml?.rootElement()
+        let Header = DDXMLElement.init(name: "soap:Header")
+        let Body = DDXMLElement.init(name: "soap:Body")
+        root?.addChild(Header)
+        root?.addChild(Body)
+        
+        return xml?.xmlData as! NSData
+    }
+    
     @objc func loginItemPress(_ sender : UIButton){
         let manager = AFHTTPSessionManager.init()
         manager.responseSerializer = AFHTTPResponseSerializer()
         manager.responseSerializer.acceptableContentTypes  = NSSet(objects: "text/xml") as? Set<String>
         manager.requestSerializer.setValue("urn:MyYayaIntf-IMyYaya#Login", forHTTPHeaderField: "SOAPAction")
-        let appName = Bundle.main.infoDictionary?.index(forKey: "CFBundleDisplayName")
-        let dict = ["Id":self.idField?.text ?? "","Password":self.pwdField?.text ?? "","AppName":appName ?? "","Platform":"iOS"] as [String : Any]
+        let dict = ["Id":self.idField?.text ?? "","Password":self.pwdField?.text ?? "","AppName":"丫丫车联网","Platform":"iOS"] as [String : Any]
+        
+        
+        
         let jsonData = (try? JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions.prettyPrinted))!
         
         let para = NSString.init(data: jsonData, encoding: String.Encoding.utf8.rawValue)
