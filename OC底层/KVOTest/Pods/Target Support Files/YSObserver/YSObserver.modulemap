@@ -1,0 +1,6 @@
+framework module YSObserver {
+  umbrella header "YSObserver-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -102,6 +102,7 @@ class LoginVC : UIViewController{
             let mainvc = MainVC()
             self.navigationController?.pushViewController(mainvc, animated: false)
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

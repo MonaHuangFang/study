@@ -1,0 +1,6 @@
+framework module Pods_KVOTest {
+  umbrella header "Pods-KVOTest-umbrella.h"
+
+  export *
+  module * { export * }
+}
